@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -30,11 +30,11 @@
     </div>
     <nav class="menu-bar" id="menuBar">
         <ul>
-            <li><a href="index.html">Trang chủ</a></li>
-            <li><a href="introduction.html">Giới thiệu</a></li>
-            <li><a href="services.html">Dịch vụ điều trị</a></li>
-            <li><a href="notification.html">Thông báo</a></li>
-            <li><a href="contact.html">Liên hệ</a></li>
+            <li><a th:href="@{/}">Trang chủ</a></li>
+            <li><a th:href="@{/introduction}">Giới thiệu</a></li>
+            <li><a th:href="@{/services}">Dịch vụ điều trị</a></li>
+            <li><a th:href="@{/notification}">Thông báo</a></li>
+            <li><a th:href="@{/contact}">Liên hệ</a></li>
         </ul>
     </nav>
     <div class="icon-menu-search" id="menuSearch">
@@ -46,11 +46,11 @@
                 <div></div>
             </div>
             <div class="menu-icon-items" id="menuIconItem">
-                <a href="index.html">Trang chủ</a>
-                <a href="introduction.html">Giới thiệu</a>
-                <a href="services.html">Dịch vụ điều trị</a>
-                <a href="notification.html">Thông báo</a>
-                <a href="contact.html">Liên hệ</a>
+                <a th:href="@{/}">Trang chủ</a>
+                <a th:href="@{/introduction}">Giới thiệu</a>
+                <a th:href="@{/services}">Dịch vụ điều trị</a>
+                <a th:href="@{/notification}">Thông báo</a>
+                <a th:href="@{/contact}">Liên hệ</a>
             </div>
         </div>
 
@@ -101,7 +101,6 @@
         <input type="number" pattern="\d*" maxlength="1">
         <input type="number" pattern="\d*" maxlength="1">
         <input type="number" pattern="\d*" maxlength="1">
-
     </div>
 </div>
 <hr>
