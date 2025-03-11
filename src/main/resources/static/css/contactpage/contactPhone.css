@@ -1,0 +1,44 @@
+@media screen and (max-width: 1024px) {
+    #mapContact {
+        width: 100%;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .nameAndPhone {
+        flex-direction: column;
+    }
+
+    
+
+    .nameAndPhone div {
+        width: 100%;
+    }
+
+    .nameAndPhone div:nth-child(2) {
+        transform: none;
+    }
+    
+    .nameAndPhone div:nth-child(2) input, 
+    .nameAndPhone div:nth-child(2) h3 {
+        transform: none;
+    }
+    .contactInfo {
+        width: 80%;
+    }
+
+    textarea {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .contactInfo img {
+        display: none;
+    }
+
+    .contactInfo form {
+        width: 100%;
+    }
+}

@@ -1,0 +1,34 @@
+@media screen and (max-width: 987px) {
+    .introduction img {
+        width: 90%;
+        height: auto;
+    }
+
+    .notification-list {
+        padding-inline: 15%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .notification-info {
+
+        width: 100%;
+        height: auto;
+    }
+
+    .notification-info h2 {
+        font-size: 150%;
+    }
+
+    .notification-info p {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .introduction {
+        flex-direction: column;
+        align-items: center;
+        padding-inline: 40px;
+    }
+}
