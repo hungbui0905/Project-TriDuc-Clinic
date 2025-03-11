@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Liên hệ</title>
+    <link rel="stylesheet" href="css/allpage/desktop.css">
+    <link rel="stylesheet" href="css/allpage/phone.css">
+    <link rel="stylesheet" href="css/contactpage/contactDesktop.css">
+    <link rel="stylesheet" href="css/contactpage/contactPhone.css">
+    <script src="https://kit.fontawesome.com/e0090b6b7e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<header>
+    <div class="top-bar">
+        <p>Địa chỉ: 006 - Cao Bá Quát - Phường Cốc Lếu - Thành phố Lào Cai</p>
+        <div class="search-box">
+            <input type="text" id="searchInput" onclick="toggleSearchInput()" placeholder="Tìm kiếm...">
+            <button>&#128269;</button>
+        </div>
+    </div>
+    <div class="clinic-info" id="clinicInfo">
+        <div class="logo">&#9875;</div>
+        <div class="text">
+            <h2>Phòng khám tư nhân Trí Đức</h2>
+            <p>Hotline: 0986792115</p>
+        </div>
+    </div>
+    <nav class="menu-bar" id="menuBar">
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="introduction.html">Giới thiệu</a></li>
+            <li><a href="services.html">Dịch vụ điều trị</a></li>
+            <li><a href="notification.html">Thông báo</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+    </nav>
+    <div class="icon-menu-search" id="menuSearch">
+        <div>
+            <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="menu-icon-items" id="menuIconItem">
+                <a href="index.html">Trang chủ</a>
+                <a href="introduction.html">Giới thiệu</a>
+                <a href="services.html">Dịch vụ điều trị</a>
+                <a href="notification.html">Thông báo</a>
+                <a href="contact.html">Liên hệ</a>
+            </div>
+        </div>
+
+        <div class="search-phone" id="searchPhone">
+            <div class="search-icon" onclick="toggleSearch()" id="searchIcon">
+                &#128269;
+            </div>
+            <input type="text" placeholder="Tìm kiếm" id="searchIconInput">
+        </div>
+    </div>
+</header>
+
+
+<img class="contactPic" id="mainPicture" src="images/contactpage/health.png" alt="Contact main picture">
+<iframe id="mapContact"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.1842948790986!2d103.96648137436854!3d22.49726757954548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x36cd139ba94fc969%3A0x27481a2ec9c94b36!2zUGjDsm5nIGtow6FtIFRSw40gxJDhu6hD!5e0!3m2!1svi!2s!4v1741193829409!5m2!1svi!2s"
+        width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div class="contactInfo">
+    <form th:action="@{contact}" method="get">
+        <h2>Thông tin liên lạc</h2><hr>
+        <div class="nameAndPhone" id="namePhone">
+            <div>
+                <h3>Họ tên</h3>
+                <input type="text" name="fullname" placeholder="Họ và tên">
+            </div>
+            <div>
+                <h3 id="h3Element">Số điện thoại</h3>
+                <input type="tel" id="phoneInput" name="phonenumber" placeholder="Số điện thoại">
+            </div>
+        </div>
+        <h3>Nội dung</h3>
+        <textarea name="" placeholder="Tình trạng sức khỏe của bạn như thế nào?"></textarea><br>
+        <button type="button" id="sendBtn">
+            <i class="fa-solid fa-paper-plane"></i> Gửi
+        </button>
+    </form>
+    <img src="images/contactpage/doctorsmile.png" alt="Doctor smile">
+</div>
+<div class="otp">
+    <i id="exit" class="fa-regular fa-circle-xmark"></i>
+    <p>Một mã OTP đã được gửi đến số điện thoại của bạn</p>
+    <p>Vui lòng nhập mã vào ô dưới đây</p>
+    <div class="otp-cells">
+        <input type="number" pattern="\d*" maxlength="1">
+        <input type="number" pattern="\d*" maxlength="1">
+        <input type="number" pattern="\d*" maxlength="1">
+        <input type="number" pattern="\d*" maxlength="1">
+        <input type="number" pattern="\d*" maxlength="1">
+        <input type="number" pattern="\d*" maxlength="1">
+
+    </div>
+</div>
+<hr>
+<footer>
+
+    <div class="clinic-info-footer" id="clinicInfo">
+
+        <div class="text">
+            <div class="logo">&#9875;</div>
+            <h2>Phòng khám tư nhân Trí Đức</h2>
+        </div>
+        <p>
+            <i class="fa-solid fa-location-dot"></i>
+            Địa chỉ: 006 - Cao Bá Quát - Phường Cốc Lếu - Thành phố Lào Cai
+        </p>
+        <p>
+            <i class="fa-solid fa-clock"></i>
+            Giờ làm việc:
+            Sáng: 8 h-11h tất cả các ngày trong tuần <br>
+            Chiều 15h-18h tất cả các ngày trong tuần
+
+        </p>
+        <p>
+            <i class="fa-solid fa-phone"></i>
+            Hotline: 0986792115
+        </p>
+        <iframe id="fanpage"
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100063565957525&tabs&width=340&height=100&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
+                frameborder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+    </div>
+
+    <iframe id="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.1842948790986!2d103.96648137436854!3d22.49726757954548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x36cd139ba94fc969%3A0x27481a2ec9c94b36!2zUGjDsm5nIGtow6FtIFRSw40gxJDhu6hD!5e0!3m2!1svi!2s!4v1741109004774!5m2!1svi!2s"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</footer>
+<script src="javascripts/contact.js"></script>
+
+<script src="javascripts/home.js"></script>
+</body>
+
+</html>

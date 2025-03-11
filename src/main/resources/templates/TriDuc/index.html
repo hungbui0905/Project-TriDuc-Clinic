@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Phòng khám tư nhân Trí Đức</title>
+    <link rel="stylesheet" href="css/allpage/desktop.css">
+    <link rel="stylesheet" href="css/allpage/phone.css">
+    <link rel="stylesheet" href="css/homepage/homeDesktop.css">
+    <link rel="stylesheet" href="css/homepage/homePhone.css">
+    <script src="https://kit.fontawesome.com/e0090b6b7e.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <header>
+        <div class="top-bar">
+            <p>Địa chỉ: 006 - Cao Bá Quát - Phường Cốc Lếu - Thành phố Lào Cai</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" onclick="toggleSearchInput()" placeholder="Tìm kiếm...">
+                <button>&#128269;</button>
+            </div>
+        </div>
+        <div class="clinic-info" id="clinicInfo">
+            <div class="logo">&#9875;</div>
+            <div class="text">
+                <h2>Phòng khám tư nhân Trí Đức</h2>
+                <p>Hotline: 0986792115</p>
+            </div>
+        </div>
+        <nav class="menu-bar" id="menuBar">
+            <ul>
+                <li><a th:href="@{/}">Trang chủ</a></li>
+                <li><a th:href="@{/introduction}">Giới thiệu</a></li>
+                <li><a th:href="@{/services}">Dịch vụ điều trị</a></li>
+                <li><a th:href="@{/notification}">Thông báo</a></li>
+                <li><a th:href="@{/contact}">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="icon-menu-search" id="menuSearch">
+            <div>
+                <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="menu-icon-items" id="menuIconItem">
+                    <a th:href="@{/}">Trang chủ</a>
+                    <a th:href="@{/introduction}">Giới thiệu</a>
+                    <a th:href="@{/services}">Dịch vụ điều trị</a>
+                    <a th:href="@{/notification}">Thông báo</a>
+                    <a th:href="@{/contact}">Liên hệ</a>
+                </div>
+            </div>
+
+            <div class="search-phone" id="searchPhone">
+                <div class="search-icon" onclick="toggleSearch()" id="searchIcon">
+                    &#128269;
+                </div>
+                <input type="text" placeholder="Tìm kiếm" id="searchIconInput">
+            </div>
+        </div>
+    </header>
+
+
+    <div class="pic-content" id="mainPicture">
+        <img src="images/homepage/homepic.jpg" alt="Bác sĩ">
+    </div>
+
+    <div class="services">
+        <a href="index.html">
+            <img src="images/homepage/digest.jpg" alt="Tiêu hóa">
+            <p><b>Tiêu hóa</b></p>
+        </a>
+
+        <a href="#">
+            <img src="images/homepage/bone.jpg" alt="Xương khớp">
+            <p><b>Xương khớp</b></p>
+        </a>
+        <a href="#">
+            <img src="images/homepage/heart.jpg" alt="Tim mạch">
+            <p><b>Tim mạch</b></p>
+        </a>
+
+
+
+    </div>
+    <div class="introduction">
+        <div class="intro-text">
+            <h1>Giới thiệu</h1>
+            <p>Cuộc sống luôn đầy những thử thách và cơ hội. Mỗi ngày, chúng ta phải đối mặt với nhiều lựa chọn khác
+                nhau, từ những quyết định nhỏ nhặt đến những bước ngoặt quan trọng. Để thành công, không chỉ cần sự chăm
+                chỉ mà còn phải có lòng kiên trì và tinh thần học hỏi không ngừng. Đôi khi, thất bại là điều không thể
+                tránh khỏi, nhưng điều quan trọng là chúng ta rút ra bài học từ đó và tiếp tục tiến lên. Hãy luôn giữ
+                vững niềm tin vào bản thân, đặt ra mục tiêu rõ ràng và không ngừng cố gắng. Thành công sẽ đến với những
+                ai không bỏ cuộc.</p>
+        </div>
+        <img src="images/homepage/introduction.jpg" alt="Giới thiệu">
+    </div>
+    <div class="notification">
+        <h1>Thông báo</h1>
+        <div class="notification-list">
+            <div class="notification-info">
+                <a href="#">
+                    <img src="images/homepage/noti2.jpg" alt="noti2">
+                    <h2>Lịch nghỉ Tết Nguyên Đán Ất Tỵ 2025</h2>
+                </a>
+
+                <p>Thông báo lịch nghỉ Tết Âm lịch của phòng khám từ ngày 23/01/2025 (tức 24/12/2024 Âm lịch) và sẽ bắt
+                    đầu làm việc trở lại vào ngày 06/02/2025 (tức 09/01/2025 Âm lịch). Để biết thêm thông tin chi
+                    tiết, có thể liên hệ qua số điện thoại 0986-792-115. Xin chân thành cảm ơn.</p>
+
+            </div>
+            <div class="notification-info">
+                <a href="#">
+                    <img src="images/homepage/noti1.jpg" alt="noti1">
+                    <h2>Tiêm huyết tương tiểu cầu điều trị thoái hóa khớp</h2>
+                </a>
+                <p>Để tạo thuận lợi cho khách hàng trong việc lựa chọn liệu pháp điều trị thoái hóa khớp, ngoài các
+                    phương
+                    pháp điều trị đã được triển khai, Phòng khám phối hợp với Công Ty Cổ Phần Patco triển khai công nghệ
+                    tiêm huyết tương giàu tiểu cầu tự thân. Khách hàng quan tâm xin liên hệ với Phòng khám để được tư
+                    vấn.
+                </p>
+
+
+            </div>
+            <div class="notification-info">
+                <a href="#">
+                    <img src="images/homepage/noti3.jpg" alt="noti3">
+                    <h2>Lịch nghỉ Tết Nguyên Đán Canh Tý 2020 </h2>
+                </a>
+
+                <p>Thông báo lịch nghỉ Tết Âm lịch của phòng khám từ ngày 20/01/2020 đến ngày 01/02/2020 (tức ngày
+                    26/12/2019 đến 08/01/2020 Âm lịch) và sẽ bắt đầu làm việc trở lại vào ngày 02/02/2020 (tức
+                    09/01/2020 Âm lịch). Để biết thêm thông tin chi tiết, có thể liên hệ qua số điện thoại
+                    0986-792-115. Xin chân thành cảm ơn.</p>
+
+
+            </div>
+
+        </div>
+    </div>
+    <hr>
+    <footer>
+
+        <div class="clinic-info-footer" id="clinicInfo">
+
+            <div class="text">
+                <div class="logo">&#9875;</div>
+                <h2>Phòng khám tư nhân Trí Đức</h2>
+            </div>
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+                Địa chỉ: 006 - Cao Bá Quát - Phường Cốc Lếu - Thành phố Lào Cai
+            </p>
+            <p>
+                <i class="fa-solid fa-clock"></i>
+                Giờ làm việc:
+                Sáng: 8 h-11h tất cả các ngày trong tuần <br>
+                Chiều 15h-18h tất cả các ngày trong tuần
+
+            </p>
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                Hotline: 0986792115
+            </p>
+            <iframe id="fanpage"
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100063565957525&tabs&width=340&height=100&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
+                width="340" height="150" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                allowfullscreen="true"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
+
+
+
+        <iframe id="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.1842948790986!2d103.96648137436854!3d22.49726757954548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x36cd139ba94fc969%3A0x27481a2ec9c94b36!2zUGjDsm5nIGtow6FtIFRSw40gxJDhu6hD!5e0!3m2!1svi!2s!4v1741109004774!5m2!1svi!2s"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </footer>
+
+    <script th:src="@{/javascripts/home.js}"></script>
+
+
+
+</body>
+
+</html>

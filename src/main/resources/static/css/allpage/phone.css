@@ -1,0 +1,165 @@
+@media screen and (max-width: 987px) {
+    .top-bar {
+        display: none !important;
+    }
+
+    .clinic-info {
+        display: flex;
+        align-items: center;
+        padding-left: 5px;
+        background: white;
+        text-align: left;
+    }
+
+    .clinic-info>.text {
+        font-size: 14px;
+    }
+
+    .menu-icon.active+.menu-icon-items {
+        display: block;
+        position: absolute;
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        width: 150px;
+    }
+    .menu-icon.active div:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .menu-icon.active div:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-icon.active div:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .menu-icon-items a {
+
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: black;
+    }
+
+    .menu-icon-items a:hover {
+        background-color: #d20707;
+    }
+
+    .icon-menu-search .menu-icon {
+        display: flex !important
+    }
+
+    .icon-menu-search .search-icon {
+        display: flex !important
+    }
+
+    .search-phone {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+    }
+
+    .search-icon.active+input {
+        top: 110%;
+        right: 0%;
+        display: block;
+        position: absolute;
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    
+    footer {
+        flex-direction: column;
+        gap: 5%
+    }
+
+    #fanpage {
+        display: none;
+    }
+
+    .clinic-info-footer {
+        width: 100%;
+    }
+    .working-hour {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .menu-bar {
+        display: none;
+    }
+
+    .icon-menu-search {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .icon-menu-search {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu-icon.active+.menu-icon-items {
+        display: block;
+        position: absolute;
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        width: 150px;
+    }
+
+    .menu-icon-items a {
+
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: black;
+    }
+
+    .menu-icon-items a:hover {
+        background-color: #d20707;
+    }
+
+    .icon-menu-search .menu-icon {
+        display: flex !important
+    }
+
+    .icon-menu-search .search-icon {
+        display: flex !important
+    }
+
+    .search-phone {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+    }
+
+    .search-icon.active+input {
+        top: 110%;
+        right: 0%;
+        display: block;
+        position: absolute;
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+    }
+}
