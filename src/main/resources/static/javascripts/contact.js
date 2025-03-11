@@ -22,14 +22,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-Array.from( document.querySelector(".otp-cells").children).forEach(cell => {
-    cell.addEventListener("input", function() {
+document.querySelectorAll('.otp-cells input').forEach(input => {
+    input.addEventListener('input', function() {
+        if (this.value.length > this.maxLength) {
+            this.value = this.value.slice(0, 1);
+        }
         if(this.value.length === this.maxLength) {
             let nextCell = this.nextElementSibling;
             if (nextCell) nextCell.focus();
-            this.disabled = true;
         }
-    })
+    });
 });
 
 
