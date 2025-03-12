@@ -70,7 +70,7 @@
         width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
 <div class="contactInfo">
-    <form th:action="@{contact}" method="get">
+    <form th:action="@{/contact}" method="post">
         <h2>Thông tin liên lạc</h2><hr>
         <div class="nameAndPhone" id="namePhone">
             <div>
@@ -95,18 +95,18 @@
     <p>Một mã OTP đã được gửi đến số điện thoại của bạn</p>
     <p>Vui lòng nhập mã vào ô dưới đây</p>
     <div class="otp-cells">
-        <input type="number" pattern="\d*" maxlength="1">
-        <input type="number" pattern="\d*" maxlength="1">
-        <input type="number" pattern="\d*" maxlength="1">
-        <input type="number" pattern="\d*" maxlength="1">
-        <input type="number" pattern="\d*" maxlength="1">
-        <input type="number" pattern="\d*" maxlength="1">
+        <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')"/>
+        <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')"/>
+        <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')"/>
+        <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')"/>
+        <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')"/>
+        <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')"/>
     </div>
 </div>
 <hr>
 <footer>
 
-    <div class="clinic-info-footer" id="clinicInfo">
+    <div class="clinic-info-footer" >
 
         <div class="text">
             <div class="logo">&#9875;</div>
