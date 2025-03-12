@@ -11,25 +11,33 @@ function h3alignment() {
         h3Element.style.paddingLeft = "0px";
     }
 }
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("sendBtn").addEventListener("click", function () {
         document.querySelector(".otp").style.display = "block";
+        document.querySelectorAll(".otp-cells input")[0].focus();
     });
 
     document.getElementById("exit").addEventListener("click", function () {
         document.querySelector(".otp").style.display = "none";
+        document.querySelectorAll(".otp input").forEach(input => {
+            input.value = "";
+        })
     });
 });
 
-
 document.querySelectorAll('.otp-cells input').forEach(input => {
-    input.addEventListener('input', function() {
+    input.addEventListener('input', function () {
         if (this.value.length > this.maxLength) {
             this.value = this.value.slice(0, 1);
-        }
-        if(this.value.length === this.maxLength) {
+        } else if (this.value.length === this.maxLength) {
             let nextCell = this.nextElementSibling;
             if (nextCell) nextCell.focus();
+        } else if (this.value.length === 0) {
+            let prevCell = this.previousElementSibling;
+            if (prevCell) prevCell.focus();
         }
     });
 });
