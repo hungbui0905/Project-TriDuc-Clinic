@@ -35,9 +35,6 @@ document.querySelectorAll('.otp-cells input').forEach(input => {
         } else if (this.value.length === this.maxLength) {
             let nextCell = this.nextElementSibling;
             if (nextCell) nextCell.focus();
-        } else if (this.value.length === 0) {
-            let prevCell = this.previousElementSibling;
-            if (prevCell) prevCell.focus();
         }
     });
 });
