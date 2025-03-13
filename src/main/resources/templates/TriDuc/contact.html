@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no">
     <title>Liên hệ</title>
     <link rel="stylesheet" href="css/allpage/desktop.css">
     <link rel="stylesheet" href="css/allpage/phone.css">
@@ -30,11 +30,11 @@
     </div>
     <nav class="menu-bar" id="menuBar">
         <ul>
-            <li><a th:href="@{/}">Trang chủ</a></li>
-            <li><a th:href="@{/introduction}">Giới thiệu</a></li>
-            <li><a th:href="@{/services}">Dịch vụ điều trị</a></li>
-            <li><a th:href="@{/notification}">Thông báo</a></li>
-            <li><a th:href="@{/contact}">Liên hệ</a></li>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="introduction.html">Giới thiệu</a></li>
+            <li><a href="services.html">Dịch vụ điều trị</a></li>
+            <li><a href="notification.html">Thông báo</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
         </ul>
     </nav>
     <div class="icon-menu-search" id="menuSearch">
@@ -46,11 +46,11 @@
                 <div></div>
             </div>
             <div class="menu-icon-items" id="menuIconItem">
-                <a th:href="@{/}">Trang chủ</a>
-                <a th:href="@{/introduction}">Giới thiệu</a>
-                <a th:href="@{/services}">Dịch vụ điều trị</a>
-                <a th:href="@{/notification}">Thông báo</a>
-                <a th:href="@{/contact}">Liên hệ</a>
+                <a href="index.html">Trang chủ</a>
+                <a href="introduction.html">Giới thiệu</a>
+                <a href="services.html">Dịch vụ điều trị</a>
+                <a href="notification.html">Thông báo</a>
+                <a href="contact.html">Liên hệ</a>
             </div>
         </div>
 
@@ -70,8 +70,9 @@
         width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
 <div class="contactInfo">
-    <form th:action="@{/contact}" method="post">
-        <h2>Thông tin liên lạc</h2><hr>
+    <form th:action="@{contact}" method="get">
+        <h2>Thông tin liên lạc</h2>
+        <hr>
         <div class="nameAndPhone" id="namePhone">
             <div>
                 <h3>Họ tên</h3>
@@ -102,11 +103,12 @@
         <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
         <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
     </div>
+    <div class="loader"></div>
 </div>
 <hr>
 <footer>
 
-    <div class="clinic-info-footer" >
+    <div class="clinic-info-footer" id="clinicInfo">
 
         <div class="text">
             <div class="logo">&#9875;</div>
