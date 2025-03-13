@@ -11,6 +11,7 @@
     height: 65%;
     width: 40%;
 }
+
 .contactInfo h2 {
     font-weight: lighter;
 }
@@ -50,9 +51,11 @@ textarea {
     height: 300px;
     width: 99%;
 }
+
 .contactInfo form {
     width: 50%;
 }
+
 #sendBtn {
     width: 100px;
     margin-top: 10px;
@@ -96,24 +99,51 @@ textarea {
 
 .otp-cells {
     display: flex;
-    gap:5%;
+    gap: 5%;
     justify-content: center;
 }
 
-.otp-cells input{
+.otp-cells input {
+    padding-block: unset;
+    padding-inline: 1px;
     border: black solid;
+    font-weight: bold;
     font-size: 20px;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     text-align: center;
-    font-size: larger;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .otp-cells input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
+
 .otp-cells input[type=number] {
     -moz-appearance: textfield;
-  }
+}
+
+.loader {
+    display: none;
+    margin-top: 10px;
+    margin-inline: auto;
+    width: 38px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 6px;
+    background:
+        conic-gradient(from 135deg at top, currentColor 90deg, #0000 0) 0 calc(50% - 4px)/17px 8.5px,
+        radial-gradient(farthest-side at bottom left, #0000 calc(100% - 6px), currentColor calc(100% - 5px) 99%, #0000) top right/50% 50% content-box content-box,
+        radial-gradient(farthest-side at top, #0000 calc(100% - 6px), currentColor calc(100% - 5px) 99%, #0000) bottom /100% 50% content-box content-box;
+    background-repeat: no-repeat;
+    animation: l11 1s infinite linear;
+}
+
+@keyframes l11 {
+    100% {
+        transform: rotate(1turn)
+    }
+}

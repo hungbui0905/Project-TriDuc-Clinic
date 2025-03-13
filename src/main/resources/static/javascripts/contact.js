@@ -13,6 +13,23 @@ function h3alignment() {
 }
 
 
+var inputList = document.querySelectorAll('.otp-cells input')
+
+
+inputList.forEach((input) => {
+    input.addEventListener('input', function () {
+        if (this.value.length > this.maxLength) {
+            this.value = this.value.slice(0, 1);
+        } else if (this.value.length === this.maxLength) {
+            let nextCell = this.nextElementSibling;
+            if (nextCell) nextCell.focus();
+        }
+        if ([...inputList].every(inp => inp.value.length === 1)) {
+            [...inputList].every(inp => inp.disabled = true)
+            document.querySelector(".loader").style.display = "block";
+        }
+    });
+});
 
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("sendBtn").addEventListener("click", function () {
@@ -22,22 +39,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("exit").addEventListener("click", function () {
         document.querySelector(".otp").style.display = "none";
-        document.querySelectorAll(".otp input").forEach(input => {
+        inputList.forEach(input => {
             input.value = "";
+            if ([...inputList].every(inp => inp.value.length === 0)) {
+                [...inputList].forEach(inp => inp.disabled = false)
+                document.querySelector(".loader").style.display = "none";
+            }
         })
     });
 });
 
-document.querySelectorAll('.otp-cells input').forEach(input => {
-    input.addEventListener('input', function () {
-        if (this.value.length > this.maxLength) {
-            this.value = this.value.slice(0, 1);
-        } else if (this.value.length === this.maxLength) {
-            let nextCell = this.nextElementSibling;
-            if (nextCell) nextCell.focus();
-        }
-    });
-});
+
 
 
 h3alignment();
