@@ -16,7 +16,7 @@
     font-weight: lighter;
 }
 
-.contactInfo div:first-child {
+.contactInfo > div:first-child {
     width: 50%;
 }
 
@@ -24,34 +24,39 @@
     padding-inline: 10%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-.nameAndPhone div {
-    width: 50%;
 }
 
 .nameAndPhone {
     display: flex;
     justify-content: space-between;
+
 }
 
-.nameAndPhone div:nth-child(2) {
-    transform: scaleX(-1);
+.nameAndPhone div {
+    width: 40%;
 }
 
-.nameAndPhone div:nth-child(2) input,
-.nameAndPhone div:nth-child(2) h3 {
-    transform: scaleX(-1);
+.nameAndPhone div input{
+    border: solid 1px;
 }
 
+.nameAndPhone > :last-child  input{
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.nameAndPhone div h3 {
+    width: 80%
+}
 
 .nameAndPhone div input {
     height: 30px;
-    width: 80%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 textarea {
+    border: solid 1px;
     height: 300px;
     width: 99%;
 }
