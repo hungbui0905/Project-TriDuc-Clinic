@@ -14,13 +14,14 @@ function h3alignment() {
 
 
 var inputList = document.querySelectorAll('.otp-cells input')
-
+var inputedOtp="";
 
 inputList.forEach((input) => {
     input.addEventListener('input', function () {
         if (this.value.length > this.maxLength) {
             this.value = this.value.slice(0, 1);
         } else if (this.value.length === this.maxLength) {
+            inputedOtp+=this.value;
             let nextCell = this.nextElementSibling;
             if (nextCell) nextCell.focus();
         }
@@ -28,6 +29,15 @@ inputList.forEach((input) => {
             [...inputList].every(inp => inp.disabled = true)
             document.querySelector(".loader").style.display = "block";
         }
+    });
+});
+
+document.querySelectorAll(".contactInfo input, .contactInfo textarea").forEach((element) => {
+    element.addEventListener("input", () => {
+        const allInputsFilled = [...document.querySelectorAll(".contactInfo input, .contactInfo textarea")]
+            .every(input => input.value.trim() !== "");
+
+        document.querySelector(".contactInfo button").disabled = !allInputsFilled;
     });
 });
 

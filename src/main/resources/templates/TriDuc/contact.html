@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -30,11 +30,11 @@
     </div>
     <nav class="menu-bar" id="menuBar">
         <ul>
-            <li><a href="index.html">Trang chủ</a></li>
-            <li><a href="introduction.html">Giới thiệu</a></li>
-            <li><a href="services.html">Dịch vụ điều trị</a></li>
-            <li><a href="notification.html">Thông báo</a></li>
-            <li><a href="contact.html">Liên hệ</a></li>
+            <li><a th:href="@{/}">Trang chủ</a></li>
+            <li><a th:href="@{/introduction}">Giới thiệu</a></li>
+            <li><a th:href="@{/services}">Dịch vụ điều trị</a></li>
+            <li><a th:href="@{/notification}">Thông báo</a></li>
+            <li><a th:href="@{/contact}">Liên hệ</a></li>
         </ul>
     </nav>
     <div class="icon-menu-search" id="menuSearch">
@@ -46,11 +46,11 @@
                 <div></div>
             </div>
             <div class="menu-icon-items" id="menuIconItem">
-                <a href="index.html">Trang chủ</a>
-                <a href="introduction.html">Giới thiệu</a>
-                <a href="services.html">Dịch vụ điều trị</a>
-                <a href="notification.html">Thông báo</a>
-                <a href="contact.html">Liên hệ</a>
+                <a th:href="@{/}">Trang chủ</a>
+                <a th:href="@{/introduction}">Giới thiệu</a>
+                <a th:href="@{/services}">Dịch vụ điều trị</a>
+                <a th:href="@{/notification}">Thông báo</a>
+                <a th:href="@{/contact}">Liên hệ</a>
             </div>
         </div>
 
@@ -70,25 +70,26 @@
         width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
 <div class="contactInfo">
-    <form th:action="@{contact}" method="get">
+    <div>
         <h2>Thông tin liên lạc</h2>
         <hr>
         <div class="nameAndPhone" id="namePhone">
             <div>
                 <h3>Họ tên</h3>
-                <input type="text" name="fullname" placeholder="Họ và tên">
+                <input type="text" name="fullname" placeholder="Họ và tên" required>
             </div>
             <div>
                 <h3 id="h3Element">Số điện thoại</h3>
-                <input type="tel" id="phoneInput" name="phonenumber" placeholder="Số điện thoại">
+                <input type="tel" id="phoneInput" name="phonenumber" placeholder="Số điện thoại" required>
             </div>
         </div>
         <h3>Nội dung</h3>
-        <textarea name="" placeholder="Tình trạng sức khỏe của bạn như thế nào?"></textarea><br>
-        <button type="button" id="sendBtn">
+        <textarea name="" placeholder="Tình trạng sức khỏe của bạn như thế nào?" required></textarea><br>
+        <button type="button" id="sendBtn" disabled>
             <i class="fa-solid fa-paper-plane"></i> Gửi
         </button>
-    </form>
+    </div>
+
     <img src="images/contactpage/doctorsmile.png" alt="Doctor smile">
 </div>
 <div class="otp">

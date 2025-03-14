@@ -16,6 +16,10 @@
     font-weight: lighter;
 }
 
+.contactInfo div:first-child {
+    width: 50%;
+}
+
 .contactInfo {
     padding-inline: 10%;
     display: flex;
@@ -52,9 +56,7 @@ textarea {
     width: 99%;
 }
 
-.contactInfo form {
-    width: 50%;
-}
+
 
 #sendBtn {
     width: 100px;
