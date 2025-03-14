@@ -25,9 +25,11 @@
         transform: none;
     }
     .contactInfo {
-        width: 80%;
+        display: block;
     }
-
+    .contactInfo>div {
+        width: 100%;
+    }
     textarea {
         width: 80%;
     }
@@ -38,7 +40,8 @@
         display: none;
     }
 
-    .contactInfo form {
+    .contactInfo {
         width: 100%;
     }
+
 }
