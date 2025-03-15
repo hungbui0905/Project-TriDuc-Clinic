@@ -29,21 +29,19 @@ function otpTyping() {
 
 
 
-document.querySelectorAll(".contactInfo input, .contactInfo textarea").forEach((element) => {
-    element.addEventListener("input", () => {
-        const allInputsFilled = [...document.querySelectorAll(".contactInfo input, .contactInfo textarea")]
-            .every(input => input.value.trim() !== "");
-
-        document.querySelector(".contactInfo button").disabled = !allInputsFilled;
-    });
-});
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("sendBtn").addEventListener("click", function () {
         document.querySelector(".otp").style.display = "block";
         document.querySelectorAll(".otp-cells input")[0].focus();
+    });
+
+    document.querySelectorAll(".contactInfo input, .contactInfo textarea").forEach((element) => {
+        element.addEventListener("input", () => {
+            const allInputsFilled = [...document.querySelectorAll(".contactInfo input, .contactInfo textarea")]
+                .every(input => input.value.trim() !== "");
+
+            document.querySelector(".contactInfo button").disabled = !allInputsFilled;
+        });
     });
 
     document.getElementById("exit").addEventListener("click", function () {
