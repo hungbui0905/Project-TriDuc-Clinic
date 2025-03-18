@@ -9,5 +9,4 @@ public class TriDucClinicApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TriDucClinicApplication.class, args);
 	}
-
 }

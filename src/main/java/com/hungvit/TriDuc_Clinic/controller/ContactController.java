@@ -3,37 +3,38 @@ package com.hungvit.TriDuc_Clinic.controller;
 
 import com.hungvit.TriDuc_Clinic.entity.UserInfo;
 import com.hungvit.TriDuc_Clinic.service.SMSService;
+import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.web.server.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Map;
+
+@Slf4j
 @Controller
 public class ContactController {
-
     @GetMapping("/contact")
-    public String contact(Model model) {
-        model.addAttribute("user", new UserInfo());
+    public String contactDirect() {
         return "TriDuc/contact";
-    }
-
-    @PostMapping("/contact")
-    public String submitContact(@ModelAttribute("user") UserInfo userInfo) {
-        System.out.println("Họ tên: " + userInfo.getFullname());
-        System.out.println("Số điện thoại: " + userInfo.getPhoneNumber());
-        return "TriDuc/contact"; // Hoặc điều hướng sang một trang khác nếu cần
     }
 
     @Autowired
     private SMSService smsService;
 
+    @PostMapping("/contact")
+    public String verificationMessage(@RequestBody String phoneNumber) {
+        String sid = smsService.sendVerificationMessage(phoneNumber);
+        return sid;
+    }
+
     @PostMapping("/smsService")
-    public ResponseEntity<String> verificationMessage(@RequestParam String phoneNumber) {
-        String sid = smsService.sendVerificationMessage("+84845952002");
-        return ResponseEntity.ok("OTP sent! SID: "+ sid);
+    public String compareOtp(@RequestBody String phoneNumber, @RequestBody String otp) {
+        String sid = smsService.verificationCheck(phoneNumber, otp);
+        return sid;
     }
 }

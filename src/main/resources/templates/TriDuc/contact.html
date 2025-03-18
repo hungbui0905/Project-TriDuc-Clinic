@@ -14,53 +14,54 @@
 
 <body>
 <header>
-    <div class="top-bar">
-        <p>Địa chỉ: 006 - Cao Bá Quát - Phường Cốc Lếu - Thành phố Lào Cai</p>
-        <div class="search-box">
-            <input type="text" id="searchInput" onclick="toggleSearchInput()" placeholder="Tìm kiếm...">
-            <button>&#128269;</button>
-        </div>
-    </div>
-    <div class="clinic-info">
-        <div class="logo">&#9875;</div>
-        <div class="text">
-            <h2>Phòng khám tư nhân Trí Đức</h2>
-            <p>Hotline: 0986792115</p>
-        </div>
-    </div>
-    <nav class="menu-bar" id="menuBar">
-        <ul>
-            <li><a th:href="@{/}">Trang chủ</a></li>
-            <li><a th:href="@{/introduction}">Giới thiệu</a></li>
-            <li><a th:href="@{/services}">Dịch vụ điều trị</a></li>
-            <li><a th:href="@{/notification}">Thông báo</a></li>
-            <li><a th:href="@{/contact}">Liên hệ</a></li>
-        </ul>
-    </nav>
-    <div class="icon-menu-search" id="menuSearch">
-        <div>
-            <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="menu-icon-items" id="menuIconItem">
-                <a th:href="@{/}">Trang chủ</a>
-                <a th:href="@{/introduction}">Giới thiệu</a>
-                <a th:href="@{/services}">Dịch vụ điều trị</a>
-                <a th:href="@{/notification}">Thông báo</a>
-                <a th:href="@{/contact}">Liên hệ</a>
-            </div>
-        </div>
 
-        <div class="search-phone" id="searchPhone">
-            <div class="search-icon" onclick="toggleSearch()" id="searchIcon">
-                &#128269;
+        <div class="top-bar">
+            <p>Địa chỉ: 006 - Cao Bá Quát - Phường Cốc Lếu - Thành phố Lào Cai</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" onclick="toggleSearchInput()" placeholder="Tìm kiếm...">
+                <button>&#128269;</button>
             </div>
-            <input type="text" placeholder="Tìm kiếm" id="searchIconInput">
         </div>
-    </div>
+        <div class="clinic-info">
+            <div class="logo">&#9875;</div>
+            <div class="text">
+                <h2>Phòng khám tư nhân Trí Đức</h2>
+                <p>Hotline: 0986792115</p>
+            </div>
+        </div>
+        <nav class="menu-bar" id="menuBar">
+            <ul>
+                <li><a th:href="@{/}">Trang chủ</a></li>
+                <li><a th:href="@{/introduction}">Giới thiệu</a></li>
+                <li><a th:href="@{/services}">Dịch vụ điều trị</a></li>
+                <li><a th:href="@{/notification}">Thông báo</a></li>
+                <li><a th:href="@{/contact}">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="icon-menu-search" id="menuSearch">
+            <div>
+                <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="menu-icon-items" id="menuIconItem">
+                    <a th:href="@{/}">Trang chủ</a>
+                    <a th:href="@{/introduction}">Giới thiệu</a>
+                    <a th:href="@{/services}">Dịch vụ điều trị</a>
+                    <a th:href="@{/notification}">Thông báo</a>
+                    <a th:href="@{/contact}">Liên hệ</a>
+                </div>
+            </div>
+
+            <div class="search-phone" id="searchPhone">
+                <div class="search-icon" onclick="toggleSearch()" id="searchIcon">
+                    &#128269;
+                </div>
+                <input type="text" placeholder="Tìm kiếm" id="searchIconInput">
+            </div>
+        </div>
 </header>
 
 
@@ -69,43 +70,52 @@
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.1842948790986!2d103.96648137436854!3d22.49726757954548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x36cd139ba94fc969%3A0x27481a2ec9c94b36!2zUGjDsm5nIGtow6FtIFRSw40gxJDhu6hD!5e0!3m2!1svi!2s!4v1741193829409!5m2!1svi!2s"
         width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
-<div class="contactInfo">
-    <div>
-        <h2>Thông tin liên lạc</h2>
-        <hr>
-        <div class="nameAndPhone" id="namePhone">
-            <div>
-                <h3>Họ tên</h3>
-                <input type="text" name="fullname" placeholder="Họ và tên" required>
-            </div>
-            <div>
-                <h3 id="h3Element">Số điện thoại</h3>
-                <input type="tel" id="phoneInput" name="phonenumber" placeholder="Số điện thoại" required>
-            </div>
-        </div>
-        <h3>Nội dung</h3>
-        <textarea name="" placeholder="Tình trạng sức khỏe của bạn như thế nào?" required></textarea><br>
-        <button type="button" id="sendBtn" onclick="otpTyping()" disabled>
-            <i class="fa-solid fa-paper-plane"></i> Gửi
-        </button>
-    </div>
+<form action="@{/contact}" id="otpForm" method="post">
+    <div class="contactInfo">
+        <div>
+            <h2>Thông tin liên lạc</h2>
+            <hr>
 
-    <img src="images/contactpage/doctorsmile.png" alt="Doctor smile">
-</div>
-<div class="otp">
-    <i id="exit" class="fa-regular fa-circle-xmark"></i>
-    <p>Một mã OTP đã được gửi đến số điện thoại của bạn</p>
-    <p>Vui lòng nhập mã vào ô dưới đây</p>
-    <div class="otp-cells">
-        <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
-        <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
-        <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
-        <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
-        <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
-        <input type="text" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
+            <div class="nameAndPhone" id="namePhone">
+                <div>
+                    <h3>Họ tên</h3>
+                    <input type="text" name="fullname" placeholder="Họ và tên" required>
+                </div>
+                <div>
+                    <h3 id="h3Element">Số điện thoại</h3>
+                    <input type="tel" id="phoneInput" name="phonenumber" placeholder="Số điện thoại" required>
+                </div>
+            </div>
+            <h3>Nội dung</h3>
+            <textarea name="" placeholder="Tình trạng sức khỏe của bạn như thế nào?" required></textarea><br>
+            <button type="button" id="sendBtn" onclick="otpTyping()">
+                <i class="fa-solid fa-paper-plane"></i> Gửi
+            </button>
+
+
+        </div>
+
+        <img src="images/contactpage/doctorsmile.png" alt="Doctor smile">
     </div>
-    <div class="loader"></div>
-</div>
+    <div class="otp">
+        <i id="exit" class="fa-regular fa-circle-xmark"></i>
+        <p>Một mã OTP đã được gửi đến số điện thoại của bạn</p>
+        <p>Vui lòng nhập mã vào ô dưới đây</p>
+
+        <div class="otp-cells">
+            <input type="text" name="otpInput" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
+            <input type="text" name="otpInput" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
+            <input type="text" name="otpInput" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
+            <input type="text" name="otpInput" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
+            <input type="text" name="otpInput" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
+            <input type="text" name="otpInput" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
+        </div>
+
+        <span th:text="${inputedOTP}"></span>
+        <div class="loader"></div>
+    </div>
+</form>
+
 <hr>
 <footer>
 
@@ -121,9 +131,9 @@
         </p>
         <p>
             <i class="fa-solid fa-clock"></i>
-            Giờ làm việc:
+            Giờ làm việc:<br>
             Sáng: 8 h-11h tất cả các ngày trong tuần <br>
-            Chiều 15h-18h tất cả các ngày trong tuần
+            Chiều: 15h-18h tất cả các ngày trong tuần
 
         </p>
         <p>
@@ -143,6 +153,8 @@
 <script src="javascripts/contact.js"></script>
 
 <script src="javascripts/home.js"></script>
+
+
 </body>
 
 </html>

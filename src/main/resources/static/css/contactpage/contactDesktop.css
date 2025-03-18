@@ -24,12 +24,13 @@
     padding-inline: 10%;
     display: flex;
     justify-content: space-between;
+    align-items: end;
 }
 
 .nameAndPhone {
     display: flex;
     justify-content: space-between;
-
+    
 }
 
 .nameAndPhone div {

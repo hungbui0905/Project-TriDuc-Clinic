@@ -1,50 +1,83 @@
-
-
-
+//Change otp cells
 var inputList = document.querySelectorAll('.otp-cells input')
 
+var otpEventAdded = false;
 function otpTyping() {
-    var inputedOtp="";
+    if (otpEventAdded) return;
+    otpEventAdded = true;
+
+    let otpInputedValue = "";
+
     inputList.forEach((input) => {
         input.addEventListener('input', function () {
             if (this.value.length > this.maxLength) {
                 this.value = this.value.slice(0, 1);
-            } else if (this.value.length === this.maxLength) {
-                inputedOtp+=this.value;
-                console.log("max length: "+ this.maxLength)
-                console.log("length: "+ this.value.length)
-                console.log("inputed otp: "+ inputedOtp)
+            }
+
+            if (this.value.length === this.maxLength) {
                 let nextCell = this.nextElementSibling;
                 if (nextCell) nextCell.focus();
             }
+
             if ([...inputList].every(inp => inp.value.length === 1)) {
-                [...inputList].every(inp => inp.disabled = true)
+                inputList.forEach(inp => inp.disabled = true);
                 document.querySelector(".loader").style.display = "block";
+                otpInputedValue = [...inputList].map(inp => inp.value).join('');
+                compareOtp(otpInputedValue)
             }
         });
-    console.log(inputedOtp);
     });
 
 }
 
+function compareOtp(otpInputedValue) {
+    fetch("http://localhost:8081/smsService", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({phoneNumber: "+84845952002", opt: otpInputedValue})
+    })
+          .then(response => response.text())
+          .then(alert("Oke"))
+          .catch(error => console.error("Lỗi:", error));
+}
 
 
+//Send OTP
+function sendOtp() {
+        event.preventDefault();
+        let phoneNumber = "+84845952002";
+
+        fetch("http://localhost:8081/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({phoneNumber: "+84845952002"})
+        })
+        .then(response => response.text())
+
+        .catch(error => console.error("Lỗi:", error));
+
+}
+
+//Disable send button
+document.querySelectorAll(".contactInfo input, .contactInfo textarea").forEach((element) => {
+    element.addEventListener("input", () => {
+        const allInputsFilled = [...document.querySelectorAll(".contactInfo input, .contactInfo textarea")]
+            .every(input => input.value.trim() !== "");
+
+        document.querySelector(".contactInfo button").disabled = !allInputsFilled;
+    });
+});
+
+//Show and hide otp form
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("sendBtn").addEventListener("click", function () {
+        sendOtp();
         document.querySelector(".otp").style.display = "block";
         document.querySelectorAll(".otp-cells input")[0].focus();
+        otpTyping();
     });
 
-    document.querySelectorAll(".contactInfo input, .contactInfo textarea").forEach((element) => {
-        element.addEventListener("input", () => {
-            const allInputsFilled = [...document.querySelectorAll(".contactInfo input, .contactInfo textarea")]
-                .every(input => input.value.trim() !== "");
-
-            document.querySelector(".contactInfo button").disabled = !allInputsFilled;
-        });
-    });
-
-    document.getElementById("exit").addEventListener("click", function () {
+document.getElementById("exit").addEventListener("click", function () {
         document.querySelector(".otp").style.display = "none";
         inputList.forEach(input => {
             input.value = "";
