@@ -23,34 +23,47 @@ function otpTyping() {
                 inputList.forEach(inp => inp.disabled = true);
                 document.querySelector(".loader").style.display = "block";
                 otpInputedValue = [...inputList].map(inp => inp.value).join('');
-                compareOtp(otpInputedValue)
+                otpMessage(otpInputedValue);
             }
         });
     });
 
 }
 
-function compareOtp(otpInputedValue) {
-    fetch("http://localhost:8081/smsService", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({phoneNumber: "+84845952002", opt: otpInputedValue})
-    })
-          .then(response => response.text())
-          .then(alert("Oke"))
-          .catch(error => console.error("Lỗi:", error));
-}
-
-
-//Send OTP
-function sendOtp() {
+function otpMessage(otpInputedValue) {
         event.preventDefault();
-        let phoneNumber = "+84845952002";
+
+        let phoneNumber = document.getElementById("phoneInput");
 
         fetch("http://localhost:8081/contact", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({phoneNumber: "+84845952002"})
+            body: JSON.stringify({
+                                  phoneNumber: "+84845952002",
+                                  otpCode: otpInputedValue,
+                                  methodNumber: 2
+                                  })
+        })
+        .then(response => response.text())
+
+        .catch(error => console.error("Lỗi:", error));
+
+}
+
+//Send OTP
+function sendOtp() {
+        event.preventDefault();
+
+        let phoneNumber = document.getElementById("phoneInput");
+
+        fetch("http://localhost:8081/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                                              phoneNumber: "+84845952002",
+                                              otpCode: null,
+                                              methodNumber: 1
+                                              })
         })
         .then(response => response.text())
 

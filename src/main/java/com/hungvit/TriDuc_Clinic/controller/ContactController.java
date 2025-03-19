@@ -27,14 +27,25 @@ public class ContactController {
     private SMSService smsService;
 
     @PostMapping("/contact")
-    public String verificationMessage(@RequestBody String phoneNumber) {
-        String sid = smsService.sendVerificationMessage(phoneNumber);
-        return sid;
+    public String otpController(@RequestBody Map<String, Object> requestData) {
+        String phoneNumber = (String) requestData.get("phoneNumber");
+        String otpCode = (String) requestData.get("otpCode");
+        int methodNumber = (int) requestData.get("methodNumber");
+        if (methodNumber==1) {
+            verificationMessage(phoneNumber);
+        } else {
+            confirmationMessage(phoneNumber, otpCode);
+        }
+        return "TriDuc/contact";
+    }
+    public void verificationMessage(String phoneNumber) {
+        smsService.sendVerificationMessage(phoneNumber);
     }
 
-    @PostMapping("/smsService")
-    public String compareOtp(@RequestBody String phoneNumber, @RequestBody String otp) {
-        String sid = smsService.verificationCheck(phoneNumber, otp);
-        return sid;
+    public void confirmationMessage(String phoneNumber, String otpCode) {
+        String resStatus = smsService.checkVerificationMessage(phoneNumber, otpCode);
+        if (resStatus.equals("approved")) {
+            System.out.println("Approved");
+        }
     }
 }
