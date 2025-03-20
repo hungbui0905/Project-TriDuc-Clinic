@@ -42,7 +42,7 @@ public class Example {
         long startTime = System.currentTimeMillis() / 1000;
         long otpExpirySeconds = 600;
         long expirationTime = startTime + otpExpirySeconds;
-
+        System.out.println("");
         while (true) {
             long currentTime = System.currentTimeMillis() / 1000;
             long remainingTime = expirationTime - currentTime;

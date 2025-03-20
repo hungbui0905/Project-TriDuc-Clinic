@@ -30,12 +30,14 @@ public class SendSMSService implements SMSService {
 
     @Override
     public String sendVerificationMessage(String phoneNumber) {
-        System.out.println("This method is oke");
+        System.out.println("Phone: "+phoneNumber);
         Verification verification = Verification.creator(
                         "VA9b200d1dfdee76173923b45c09263633",
-                        phoneNumber,
+                        "+84"+phoneNumber,
                         "sms")
                 .create();
+        System.out.println("VerificationSent: "+verification.getStatus());
+
         return verification.getStatus();
     }
 
@@ -46,6 +48,7 @@ public class SendSMSService implements SMSService {
                 .setTo(phoneNumber)
                 .setCode(otpCode)
                 .create();
+        System.out.println("VerificationCheck: "+verificationCheck.getSid());
         return verificationCheck.getStatus();
     }
 }

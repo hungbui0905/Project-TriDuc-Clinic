@@ -88,17 +88,20 @@ textarea {
     background-color: white;
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-inline: 50px;
+    width: 380px;
+    padding-inline: 10px;
     border-radius: 10px;
     left: 50%;
     transform: translateX(-50%);
     top: 20%;
+    z-index: 9999;
 }
 
 .otp i {
     position: relative;
     left: 100%;
     font-size: 35px;
+    transform: translateX(-100%);
 }
 
 .otp i:hover {
@@ -132,6 +135,11 @@ input::-webkit-inner-spin-button {
 
 .otp-cells input[type=number] {
     -moz-appearance: textfield;
+}
+
+.remainingTimeOTPMessage {
+    display: flex;
+    justify-content: center;
 }
 
 .loader {

@@ -28,14 +28,20 @@ public class ContactController {
 
     @PostMapping("/contact")
     public String otpController(@RequestBody Map<String, Object> requestData) {
-        String phoneNumber = (String) requestData.get("phoneNumber");
-        String otpCode = (String) requestData.get("otpCode");
-        int methodNumber = (int) requestData.get("methodNumber");
-        if (methodNumber==1) {
-            verificationMessage(phoneNumber);
-        } else {
-            confirmationMessage(phoneNumber, otpCode);
+        try {
+            String phoneNumber = requestData.get("phoneNumber").toString();
+            String otpCode = (String) requestData.get("otpCode");
+            int methodNumber = (int) requestData.get("methodNumber");
+            if (methodNumber==1) {
+                verificationMessage(phoneNumber);
+            } else {
+                confirmationMessage(phoneNumber, otpCode);
+            }
+            System.out.println();
+        } catch (Exception e) {
+
         }
+
         return "TriDuc/contact";
     }
     public void verificationMessage(String phoneNumber) {

@@ -88,7 +88,7 @@
             </div>
             <h3>Nội dung</h3>
             <textarea name="" placeholder="Tình trạng sức khỏe của bạn như thế nào?" required></textarea><br>
-            <button type="button" id="sendBtn" onclick="otpTyping()">
+            <button type="button" id="sendBtn" disabled>
                 <i class="fa-solid fa-paper-plane"></i> Gửi
             </button>
 
@@ -110,7 +110,11 @@
             <input type="text" name="otpInput" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
             <input type="text" name="otpInput" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
         </div>
-
+        <div class="remainingTimeOTPMessage">
+            <p id="remainingTimeOTPMessage">Mã sẽ tồn tại trong: &nbsp;
+            <p id="remainingTime"></p>
+            </p>
+        </div>
         <span th:text="${inputedOTP}"></span>
         <div class="loader"></div>
     </div>
@@ -150,8 +154,8 @@
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.1842948790986!2d103.96648137436854!3d22.49726757954548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x36cd139ba94fc969%3A0x27481a2ec9c94b36!2zUGjDsm5nIGtow6FtIFRSw40gxJDhu6hD!5e0!3m2!1svi!2s!4v1741109004774!5m2!1svi!2s"
             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </footer>
-<script src="javascripts/contact.js"></script>
-
+<script type="module" src="javascripts/contact.js"></script>
+<script type="module" src="javascripts/otpFetching.js"></script>
 <script src="javascripts/home.js"></script>
 
 
