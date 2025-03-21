@@ -15,6 +15,7 @@ public class CsrfConfig {
                 // ...
                 .csrf((csrf) -> csrf.disable()
                 );
+        http.authorizeHttpRequests(auth -> auth.anyRequest().authenticated());
         http.formLogin(withDefaults());
         http.httpBasic(withDefaults());
         return http.build();
