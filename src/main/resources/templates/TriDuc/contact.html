@@ -71,8 +71,8 @@
         width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
 <form action="@{/contact}" id="otpForm" method="post">
-    <div class="contactInfo">
-        <div>
+
+        <div class="contactInfo">
             <h2>Thông tin liên lạc</h2>
             <hr>
 
@@ -91,12 +91,10 @@
             <button type="button" id="sendBtn" disabled>
                 <i class="fa-solid fa-paper-plane"></i> Gửi
             </button>
-
-
         </div>
+    <img src="images/contactpage/doctorsmile.png" alt="">
 
-        <img src="images/contactpage/doctorsmile.png" alt="Doctor smile">
-    </div>
+
     <div class="otp">
         <i id="exit" class="fa-regular fa-circle-xmark"></i>
         <p>Một mã OTP đã được gửi đến số điện thoại của bạn</p>
@@ -111,11 +109,12 @@
             <input type="text" name="otpInput" maxlength="1" oninput="this.value= this.value.replace(/[^0-9]/g,'')" inputmode="numeric"/>
         </div>
         <div class="remainingTimeOTPMessage">
-            <p id="remainingTimeOTPMessage">Mã sẽ tồn tại trong: &nbsp;
+            <p id="remainingTimeOTPMessage">Mã sẽ hết hạn sau: &nbsp;
             <p id="remainingTime"></p>
             </p>
         </div>
-        <span th:text="${inputedOTP}"></span>
+        <p id="failMessage" th:text="${message}"></p>
+
         <div class="loader"></div>
     </div>
 </form>

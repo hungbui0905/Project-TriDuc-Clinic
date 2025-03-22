@@ -1,4 +1,4 @@
-import { otpMessage, sendOtp } from "./otpFetching.js";
+import { otpMessage, sendOtp, cancelOtp } from "./otpFetching.js";
 var otpEventAdded = false;
 document.getElementById("sendBtn").addEventListener("click", otpTyping);
 function otpTyping() {
@@ -29,7 +29,7 @@ function otpTyping() {
 }
 
 function otpCountdown() {
-    let otpTimeRange = 300;
+    let otpTimeRange = 20;
     let endTime = Math.round(Date.now() / 1000 + otpTimeRange);
 
     let interval = setInterval(() => {
@@ -43,13 +43,20 @@ function otpCountdown() {
 
         if (remainingTime <= 0) {
             clearInterval(interval);
+            console.log("Not oke")
             document.getElementById("remainingTimeOTPMessage").textContent = "Hết thời gian!";
             document.getElementById("remainingTime").style.display = "none";
+            cancelOtp();
+            setTimeout(function () {
+                window.location.reload();
+            }, 5000);
+
         }
+
         window.addEventListener("beforeunload", () => {
             clearInterval(interval);
         })
-    }, 1000); 
+    }, 1000);
 }
 
 //Disable send button
@@ -76,38 +83,43 @@ document.addEventListener("DOMContentLoaded", function () {
         otpTyping();
     });
 
-    document.getElementById("exit").addEventListener("click", function () {
+    document.querySelector("fa-regular fa-circle-xmark disabled").addEventListener("click", function () {
         enableAll();
         enableScroll();
-        let inputArray = Array.from(inputList); // Chuyển thành mảng
+        let inputArray = Array.from(inputList);
 
         if (inputArray.every(inp => inp.value.length === 0)) {
             document.querySelector(".otp").style.display = "none";
             inputArray.forEach(inp => inp.disabled = false);
             document.querySelector(".loader").style.display = "none";
-        }        
+        }
     });
 });
 
 function disableAll() {
     document.querySelectorAll("img, iframe, div, nav").forEach(el => {
-        if (!el.closest(".otp")) { 
+        if (!el.closest(".otp")) {
             el.disabled = true;
             el.style.opacity = "0.5";
             el.style.pointerEvent = "none";
-        }       
+        }
     });
 }
 
 function enableAll() {
     document.querySelectorAll("img, iframe, div, nav").forEach(el => {
-        if (!el.closest(".otp")) { 
+        if (!el.closest(".otp")) {
             el.disabled = false;
             el.style.opacity = "100";
             el.style.pointerEvent = "auto";
-        }       
+        }
     });
 }
+
+window.addEventListener("beforeunload", function() {
+    cancelOtp();
+})
+
 
 function disableScroll() {
     document.body.style.overflow = "hidden";
@@ -116,3 +128,5 @@ function disableScroll() {
 function enableScroll() {
     document.body.style.overflow = "auto";
 }
+
+window.addE

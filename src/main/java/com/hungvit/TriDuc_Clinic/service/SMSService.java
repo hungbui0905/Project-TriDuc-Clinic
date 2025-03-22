@@ -1,6 +1,7 @@
 package com.hungvit.TriDuc_Clinic.service;
 
 public interface SMSService {
-     String sendVerificationMessage(String phoneNumber);
-     String checkVerificationMessage(String phoneNumber, String otpCode);
+     abstract String sendVerificationMessage(String phoneNumber);
+     abstract String checkVerificationMessage(String phoneNumber, String otpCode);
+     abstract String cancelVerificationMessage(String phoneNumber);
 }

@@ -7,30 +7,35 @@
     height: 30%;
 }
 
-.contactInfo img {
-    height: 65%;
-    width: 40%;
-}
-
 .contactInfo h2 {
     font-weight: lighter;
+    margin-bottom: 5px;
 }
 
 .contactInfo > div:first-child {
     width: 50%;
 }
 
-.contactInfo {
-    padding-inline: 10%;
+form {
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    padding-inline: 10%;
+}
+
+form img {
+    width: 400px;
+}
+
+.contactInfo {
+    width: 50%;
+    flex-direction: column;
+    display: flex;
 }
 
 .nameAndPhone {
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 .nameAndPhone div {
