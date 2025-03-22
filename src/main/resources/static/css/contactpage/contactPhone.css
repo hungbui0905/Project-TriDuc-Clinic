@@ -12,14 +12,6 @@
     
 }
 
-.nameAndPhone div {
-    width: 40%;
-}
-
-.nameAndPhone div input{
-    border: solid 1px;
-}
-
 .nameAndPhone > :last-child  input{
     align-self: flex-end;
     margin-left: auto;
@@ -27,12 +19,6 @@
 
 .nameAndPhone div h3 {
     width: 80%
-}
-
-.nameAndPhone div input {
-    height: 30px;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 textarea {
@@ -153,6 +139,16 @@ input::-webkit-inner-spin-button {
         display: none;
     }
     .contactInfo {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:500px){
+    .nameAndPhone {
+        flex-direction: column;
+    }
+
+    .nameAndPhone div {
         width: 100%;
     }
 }

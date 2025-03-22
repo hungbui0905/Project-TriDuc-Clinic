@@ -6,7 +6,6 @@ body {
 }
 
 p {
-    word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
@@ -63,7 +62,7 @@ nav ul {
 
 nav ul li {
     display: inline;
-    padding: 50px;
+    padding: 5%;
 }
 
 nav ul li a {
@@ -116,7 +115,6 @@ nav ul li a {
 }
 
 .icon-menu-search {
-    position: relative;
     display: none;
 }
 
@@ -141,19 +139,17 @@ nav ul li a {
 footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding-inline: 10%;
     gap: 10%
 }
 
 hr {
-    margin-top: 20px;
+    width: 100%;
 }
 
 #fanpage {
     width: 361px;
     height: 150px;
-    border: none;
     overflow: hidden;
 }
 
@@ -165,19 +161,6 @@ hr {
 .clinic-info-footer {
     width: 100%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #map {
     width: 100%;

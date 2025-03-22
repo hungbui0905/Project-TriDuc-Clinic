@@ -4,11 +4,7 @@
     }
 
     .clinic-info {
-        display: flex;
-        align-items: center;
-        padding-left: 5px;
-        background: white;
-        text-align: left;
+        padding-left: 15px;
     }
 
     .clinic-info>.text {
@@ -28,11 +24,11 @@
     .menu-icon.active div:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
-    
+
     .menu-icon.active div:nth-child(2) {
         opacity: 0;
     }
-    
+
     .menu-icon.active div:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
@@ -77,7 +73,7 @@
     }
 }
 @media screen and (max-width: 1024px) {
-    
+
     footer {
         flex-direction: column;
         gap: 5%
@@ -103,13 +99,6 @@
     .icon-menu-search {
         padding: 10px;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .icon-menu-search {
-        padding: 10px;
-        display: flex;
-        align-items: center;
         justify-content: space-between;
     }
 
