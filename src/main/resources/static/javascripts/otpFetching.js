@@ -1,4 +1,4 @@
-export function otpMessage(otpInputedValue) {
+export function otpMessage(otpInputedValue, inputList) {
     event.preventDefault();
 
     let phoneNumber = document.getElementById("phoneInput").value;
@@ -19,11 +19,19 @@ export function otpMessage(otpInputedValue) {
         })
         .then(data => {
             if (data.message === "pending") {
-                let message = "Mã OTP của bạn chưa chính xác"
-                document.getElementById("failMessage").textContent = message;
+                document.getElementById("exit").style.pointerEvents = "auto";
+                document.getElementById("failMessage").style.display = "block";
                 document.getElementById("failMessage").style.color = "green";
+                inputList.forEach(inp => inp.value = "");
+                inputList.forEach(inp => inp.disabled = false);
+                document.querySelector(".loader").style.display = "none";
+                document.querySelectorAll(".otp-cells input")[0].focus();
             } else {
-                alert("Yêu cầu của bạn đã được gửi đi")
+                document.getElementById("failMessage").style.display = "none";
+                setTimeout(() => {
+                    alert("Yêu cầu của bạn đã được gửi đi");
+                    window.location.reload();
+                }, 1000)
             }
         })
         .catch(error => {

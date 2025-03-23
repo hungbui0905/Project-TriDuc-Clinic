@@ -35,7 +35,7 @@ public class SendSMSService implements SMSService {
         System.out.println("Phone: "+phoneNumber);
         Verification verification = Verification.creator(
                         "VA9b200d1dfdee76173923b45c09263633",
-                        "+84"+phoneNumber,
+                        "+1"+phoneNumber,
                         "sms")
                 .create();
         System.out.println("VerificationSent: "+verification.getStatus());
@@ -47,7 +47,7 @@ public class SendSMSService implements SMSService {
     public String checkVerificationMessage(String phoneNumber, String otpCode) {
         VerificationCheck verificationCheck= VerificationCheck.creator(
                 "VA9b200d1dfdee76173923b45c09263633")
-                .setTo("+84" + phoneNumber)
+                .setTo("+1" + phoneNumber)
                 .setCode(otpCode)
                 .create();
         System.out.println("VerificationCheck: "+verificationCheck.getStatus());

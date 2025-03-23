@@ -89,10 +89,10 @@ textarea {
     display: none;
     position: fixed;
     border: orange;
-    border-style: dotted;
+    border-style: solid;
     background-color: white;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 5px;
     width: 380px;
     padding-inline: 10px;
     border-radius: 10px;
@@ -145,13 +145,13 @@ input::-webkit-inner-spin-button {
 .remainingTimeOTPMessage {
     display: flex;
     justify-content: center;
+    height: 40px;
 }
 
 .loader {
     display: none;
-    margin-top: 10px;
     margin-inline: auto;
-    width: 38px;
+    width: 30px;
     aspect-ratio: 1;
     border-radius: 50%;
     padding: 6px;
@@ -167,4 +167,10 @@ input::-webkit-inner-spin-button {
     100% {
         transform: rotate(1turn)
     }
+}
+#failMessage {
+    display: none;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
