@@ -48,7 +48,7 @@ export function sendOtp() {
 
     let phoneNumber = document.getElementById("phoneInput").value;
     console.log(phoneNumber)
-    fetch("http://localhost:8081/contact", {
+    fetch("/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -66,7 +66,7 @@ export function cancelOtp() {
 
     let phoneNumber = document.getElementById("phoneInput").value;
     console.log(phoneNumber)
-    fetch("http://localhost:8081/contact", {
+    fetch("/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
