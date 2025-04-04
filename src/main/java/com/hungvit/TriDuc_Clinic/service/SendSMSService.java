@@ -30,6 +30,7 @@ public class SendSMSService implements SMSService {
         Twilio.init(twilioConfig.getAccountSid(), twilioConfig.getAuthToken());
     }
 
+
     @Override
     public String sendVerificationMessage(String phoneNumber) {
         System.out.println("Phone: "+phoneNumber);
@@ -38,7 +39,6 @@ public class SendSMSService implements SMSService {
                         "+84"+phoneNumber,
                         "sms")
                 .create();
-        System.out.println("VerificationSent: "+verification.getStatus());
         otpSid.add(verification.getSid());
         return verification.getSid();
     }
@@ -50,7 +50,6 @@ public class SendSMSService implements SMSService {
                 .setTo("+84" + phoneNumber)
                 .setCode(otpCode)
                 .create();
-        System.out.println("VerificationCheck: "+verificationCheck.getStatus());
         return verificationCheck.getStatus();
     }
 
@@ -62,7 +61,6 @@ public class SendSMSService implements SMSService {
                 Verification.Status.CANCELED
         ).update();
         otpSid.clear();
-        System.out.println("VerificationStatus: "+verification.getStatus());
         return "";
     }
 

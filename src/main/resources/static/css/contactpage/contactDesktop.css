@@ -42,10 +42,6 @@ form img {
     width: 40%;
 }
 
-.nameAndPhone div input{
-    border: solid 1px;
-}
-
 .nameAndPhone > :last-child  input{
     align-self: flex-end;
     margin-left: auto;
@@ -59,6 +55,7 @@ form img {
     height: 30px;
     width: 100%;
     box-sizing: border-box;
+    border: solid 1px;
 }
 
 textarea {

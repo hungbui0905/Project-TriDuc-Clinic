@@ -12,11 +12,6 @@
     
 }
 
-.nameAndPhone > :last-child  input{
-    align-self: flex-end;
-    margin-left: auto;
-}
-
 .nameAndPhone div h3 {
     width: 80%
 }
@@ -26,8 +21,6 @@ textarea {
     height: 300px;
     width: 99%;
 }
-
-
 
 #sendBtn {
     width: 100px;
@@ -54,12 +47,6 @@ textarea {
 
 .otp i:hover {
     cursor: pointer;
-}
-
-.otp-cells {
-    display: flex;
-    gap: 5%;
-    justify-content: center;
 }
 
 .otp-cells input {

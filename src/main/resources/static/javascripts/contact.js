@@ -28,6 +28,7 @@ document.getElementById("exit").addEventListener("click", function () {
     resetOtpInputs();
     enableAll();
     enableScroll();
+    cancelOtp();
     document.querySelector(".otp").style.display = "none";
     document.querySelector(".loader").style.display = "none";
 });
@@ -37,7 +38,6 @@ function otpTyping() {
     otpEventAdded = true;
     inputList.forEach((input) => {
         input.addEventListener('input', function () {
-            console.log("This  value: " + this.value)
             if (this.value.length > this.maxLength) {
                 this.value = this.value.slice(0, 1);
             }
@@ -139,6 +139,30 @@ window.addEventListener("beforeunload", function () {
     }
     cancelOtp();
 });
+
+inputList.forEach((input, index) => {
+    input.addEventListener("paste", function (event) {
+        event.preventDefault();
+
+        let pastedData = event.clipboardData.getData("text").trim();
+        if (!/^\d+$/.test(pastedData)) return;
+
+        let otpArray = pastedData.split("");
+
+        inputList[0].focus();
+
+        for (let i = 0; i < inputList.length; i++) {
+            if (otpArray[i]) {
+                inputList[i].value = otpArray[i];
+            } else {
+                inputList[i].value = "";
+            }
+        }
+
+        otpMessage(pastedData, inputList);
+    });
+});
+
 
 function disableScroll() {
     document.body.style.overflow = "hidden";

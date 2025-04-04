@@ -80,15 +80,17 @@
                 <div>
                     <h3>Họ tên</h3>
                     <input type="text" name="fullname" placeholder="Họ và tên" required>
+                    <span id="error-name" style="color: red;"></span>
                 </div>
                 <div>
                     <h3 id="h3Element">Số điện thoại</h3>
                     <input type="tel" id="phoneInput" name="phonenumber" placeholder="Số điện thoại" required>
+                    <span id="error-phone" style="color: red;"></span>
                 </div>
             </div>
             <h3>Nội dung</h3>
             <textarea name="" placeholder="Tình trạng sức khỏe của bạn như thế nào?" required></textarea><br>
-            <button type="button" id="sendBtn" disabled>
+            <button type="button" id="sendBtn">
                 <i class="fa-solid fa-paper-plane"></i> Gửi
             </button>
         </div>

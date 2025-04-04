@@ -1,17 +1,18 @@
 version: '3.6'
 
 services:
-  demo:
+  db:
     image: hungvitdev/demotriduc-deployment:1.0.1
+    ports:
+      - "8081:8081"
     environment:
       SERVER_PORT: 8081
-      DB_URL: "jdbc:postgresql://database:5432/pk_triduc"
+      DB_URL: "jdbc:postgresql://host.docker.internal:5432/pk_triduc"
       DB_USER: "postgres"
       DB_PASS: "Hung0845"
       TW_ACC_SID: "ACd3b7669a557180e82b825576fc7cedc1"
       TW_ACC_TOKEN: "fd3a011bf6208cd2a7649628fd647b08"
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    network_mode: host
     restart: always
     container_name: demo

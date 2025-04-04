@@ -21,7 +21,7 @@ export function otpMessage(otpInputedValue, inputList) {
             if (data.message === "pending") {
                 document.getElementById("exit").style.pointerEvents = "auto";
                 document.getElementById("failMessage").style.display = "block";
-                document.getElementById("failMessage").style.color = "green";
+                document.getElementById("failMessage").style.color = "red";
                 inputList.forEach(inp => inp.value = "");
                 inputList.forEach(inp => inp.disabled = false);
                 document.querySelector(".loader").style.display = "none";
@@ -47,32 +47,34 @@ export function sendOtp() {
     event.preventDefault();
 
     let phoneNumber = document.getElementById("phoneInput").value;
-    console.log(phoneNumber)
-    fetch("/contact", {
+    fetch("http://localhost:8081/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             phoneNumber: phoneNumber,
-            otpCode: null,
-            methodNumber: 1
         })
     })
-        .then(response => response.text())
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("error-phone").innerText = "";
+            if(data.phoneNumber) {
+                document.getElementById("error-phone").innerText = data.phoneNumber;
+            }
+        })
 
         .catch(error => console.error("Lỗi:", error));
 }
 
 export function cancelOtp() {
+    event.preventDefault();
 
     let phoneNumber = document.getElementById("phoneInput").value;
     console.log(phoneNumber)
-    fetch("/contact", {
-        method: "POST",
+    fetch("http://localhost:8081/contact", {
+        method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             phoneNumber: phoneNumber,
-            otpCode: null,
-            methodNumber: 3
         })
     })
         .then(response => response.text())
